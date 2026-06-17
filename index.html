@@ -224,6 +224,8 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 .rm-node.now .rd{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 4px rgba(94,106,210,.16);animation:rmPulse 2.2s ease-in-out infinite}
 .rm-node.now .rl{color:var(--accent);font-weight:700}
 .rm-seg.fill{background:linear-gradient(90deg,var(--violet),var(--accent))}
+.rm-node.phase .rd{border-radius:7px;font-size:.7rem}
+.rm-node.phase .rl{letter-spacing:.1em}
 @keyframes rmPulse{0%,100%{box-shadow:0 0 0 4px rgba(94,106,210,.14)}50%{box-shadow:0 0 0 8px rgba(94,106,210,.04)}}
 @media (max-width:900px){.rm-node{width:46px}.rm-node .rl{display:none}.rm-seg{width:14px}}
 @media (max-width:760px){.roadmap{top:6px}.rm-track{padding:6px 10px}}
@@ -387,7 +389,7 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 <div class="stage" id="stage">
 
 <!-- ============ COVER ============ -->
-<section class="slide active" data-noroadmap data-emoji="🎯" data-notice="The promise: become the default pick, not a considered one.">
+<section class="slide active" data-emoji="🎯" data-notice="The promise: become the default pick, not a considered one.">
   <div class="wrap">
     <div class="split">
       <div class="stagger">
@@ -700,7 +702,7 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 
 <!-- ============ FOUNDATIONS DIVIDER ============ -->
 <!-- ============ THE JOURNEY ROADMAP ============ -->
-<section class="slide" data-noroadmap data-emoji="🧭" data-notice="This is our map. Five moves, in order. I'll show you where we are at each step.">
+<section class="slide" data-emoji="🧭" data-notice="This is our map. Five moves, in order. I'll show you where we are at each step.">
   <div class="wrap stagger">
     <div class="eyebrow">The journey, our map for today</div>
     <h2>Five moves to the <span class="grad">obvious choice.</span></h2>
@@ -2495,7 +2497,7 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 </section>
 
 <!-- ============ Q&A ============ -->
-<section class="slide engage" style="justify-content:center" data-noroadmap data-emoji="🙋">
+<section class="slide engage" style="justify-content:center" data-emoji="🙋">
   <div class="wrap stagger" style="text-align:center;display:flex;flex-direction:column;align-items:center">
     <div class="engage-badge">◆ Open Floor</div>
     <h1 class="mt" style="font-size:clamp(3rem,9vw,7rem)">Q<span class="grad">&amp;</span>A</h1>
@@ -2509,7 +2511,7 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 </section>
 
 <!-- ============ THANK YOU ============ -->
-<section class="slide" data-noroadmap data-emoji="🙏" data-notice="Reach out, and tell me what your Sigmo is.">
+<section class="slide" data-emoji="🙏" data-notice="Reach out, and tell me what your Sigmo is.">
   <div class="wrap">
     <div class="split" style="align-items:center">
       <div class="stagger" style="display:flex;flex-direction:column;justify-content:center">
@@ -2557,29 +2559,32 @@ tot.textContent=slides.length;
 
 /* ---- persistent roadmap bar: build + per-slide step ---- */
 const RM_STEPS=[
+  {n:'▸',l:'Intro',phase:1},
   {n:'1',l:'Positioning'},{n:'2',l:'ICP'},{n:'3',l:'Trigger'},
-  {n:'4',l:'Stand out'},{n:'5',l:'Offer+Proof'},{n:'★',l:'Obvious'}
+  {n:'4',l:'Stand out'},{n:'5',l:'Offer+Proof'},
+  {n:'★',l:'Closing',phase:1}
 ];
 const roadmap=document.getElementById('roadmap');
 const rmTrack=document.createElement('div');rmTrack.className='rm-track';
 const rmNodes=[];const rmSegs=[];
 RM_STEPS.forEach((st,k)=>{
   if(k>0){const seg=document.createElement('i');seg.className='rm-seg';rmSegs.push(seg);rmTrack.appendChild(seg);}
-  const node=document.createElement('div');node.className='rm-node';
+  const node=document.createElement('div');node.className='rm-node'+(st.phase?' phase':'');
   node.innerHTML='<span class="rd">'+st.n+'</span><span class="rl">'+st.l+'</span>';
   rmNodes.push(node);rmTrack.appendChild(node);
 });
 roadmap.appendChild(rmTrack);
-/* propagate the current step forward through slides without their own marker */
+/* propagate the current step forward through slides without their own marker
+   step scale: 0 = Intro · 1-5 = the five moves · 6 = Closing */
 let _step=0;
 slides.forEach(s=>{ if(s.dataset.step!==undefined&&s.dataset.step!==''){_step=+s.dataset.step;} s._rmStep=_step; });
 function paintRoadmap(slide){
   if(slide.hasAttribute('data-noroadmap')){roadmap.classList.remove('show');return;}
   roadmap.classList.add('show');
-  const step=slide._rmStep||0; /* 1..6, 0 = not started */
-  rmNodes.forEach((node,k)=>{const idx=k+1;node.classList.remove('done','now','todo');
-    node.classList.add(idx<step?'done':idx===step?'now':'todo');});
-  rmSegs.forEach((seg,k)=>{seg.classList.toggle('fill',(k+1)<step);});
+  const step=slide._rmStep||0; /* node index 0..6 */
+  rmNodes.forEach((node,k)=>{node.classList.remove('done','now','todo');
+    node.classList.add(k<step?'done':k===step?'now':'todo');});
+  rmSegs.forEach((seg,j)=>{seg.classList.toggle('fill',step>j);});
 }
 
 /* ---- per-slide NOTICE + open-mic volunteer prompts ---- */
