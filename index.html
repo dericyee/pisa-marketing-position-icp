@@ -243,6 +243,13 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 .split{display:grid;grid-template-columns:1.1fr .9fr;gap:2.4rem;align-items:center;width:100%}
 .split.rev{grid-template-columns:.9fr 1.1fr}
 
+/* inline illustration frame (custom SVG art) */
+.viz{position:relative;width:100%;border-radius:var(--radius);border:1px solid var(--line);background:radial-gradient(120% 120% at 28% 8%,#ffffff,#eef0f6);box-shadow:var(--shadow-lg);overflow:hidden;display:grid;place-items:center;padding:1.5rem}
+.viz::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 80%);mask-image:radial-gradient(circle at 50% 40%,#000,transparent 80%);opacity:.6;pointer-events:none}
+.viz svg{position:relative;width:100%;height:auto;display:block}
+.viz .vcap{position:relative;margin-top:1rem;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center}
+@media (max-width:760px){.viz{padding:1.1rem}}
+
 /* full-bleed photo slide */
 .photo-slide{padding:0!important}
 .photo-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
@@ -536,16 +543,43 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 
 <!-- ============ S3 Why This Matters ============ -->
 <section class="slide" data-emoji="⚠️" data-notice="Every symptom here is downstream of weak positioning." data-reveal>
-  <div class="wrap stagger">
-    <div class="eyebrow">Why This Topic Matters</div>
-    <h2>When positioning is weak,<br><span class="grad">everything gets harder.</span></h2>
-    <ul class="clean mt-l" style="max-width:64ch">
-      <li><span class="mk">→</span> Marketing gets expensive.</li>
-      <li><span class="mk">→</span> Sales calls become tiring.</li>
-      <li><span class="mk">→</span> Customers compare you on price.</li>
-      <li><span class="mk">→</span> Your own team explains the business differently.</li>
-      <li><span class="mk">→</span> Worst of all, the right customers never realize the offer was meant for them.</li>
-    </ul>
+  <div class="wrap">
+    <div class="split">
+      <div class="stagger">
+        <div class="eyebrow">Why This Topic Matters</div>
+        <h2>When positioning is weak,<br><span class="grad">everything gets harder.</span></h2>
+        <ul class="clean mt-l" style="max-width:64ch">
+          <li><span class="mk">→</span> Marketing gets expensive.</li>
+          <li><span class="mk">→</span> Sales calls become tiring.</li>
+          <li><span class="mk">→</span> Customers compare you on price.</li>
+          <li><span class="mk">→</span> Your own team explains the business differently.</li>
+          <li><span class="mk">→</span> Worst of all, the right customers never realize the offer was meant for them.</li>
+        </ul>
+      </div>
+      <div class="stagger">
+        <div class="viz">
+          <svg viewBox="0 0 340 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dominoes toppling in a cascade">
+            <defs>
+              <linearGradient id="domg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#3FB6D3"/></linearGradient>
+            </defs>
+            <line x1="18" y1="226" x2="322" y2="226" stroke="#0b0c0e" stroke-opacity="0.12" stroke-width="2" stroke-linecap="round"/>
+            <!-- the push: weak positioning -->
+            <circle cx="34" cy="150" r="13" fill="url(#domg)"/>
+            <path d="M50 150 h16" stroke="url(#domg)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M62 144 l8 6 -8 6" fill="none" stroke="url(#domg)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- tiles, increasingly toppled -->
+            <g stroke="#5E6AD2" stroke-opacity="0.25" stroke-width="1.5">
+              <rect x="83" y="148" width="20" height="78" rx="5" fill="#5E6AD2" fill-opacity="0.10" transform="rotate(10 93 226)"/>
+              <rect x="133" y="148" width="20" height="78" rx="5" fill="#5E6AD2" fill-opacity="0.14" transform="rotate(34 143 226)"/>
+              <rect x="183" y="148" width="20" height="78" rx="5" fill="#5E6AD2" fill-opacity="0.18" transform="rotate(58 193 226)"/>
+              <rect x="233" y="148" width="20" height="78" rx="5" fill="url(#domg)" fill-opacity="0.55" transform="rotate(78 243 226)"/>
+              <rect x="283" y="148" width="20" height="78" rx="5" fill="url(#domg)" fill-opacity="0.85" transform="rotate(88 293 226)"/>
+            </g>
+          </svg>
+          <div class="vcap">One weak tile · the whole line falls</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -711,40 +745,99 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 
 <!-- ============ S7 Why Generic Happens ============ -->
 <section class="slide" data-emoji="😨" data-notice="It's fear of exclusion, dressed up as 'broad appeal'." data-reveal>
-  <div class="wrap stagger">
-    <div class="eyebrow">Why Generic Positioning Happens</div>
-    <h2>Generic positioning<br>comes from <span class="grad">fear.</span></h2>
-    <ul class="clean mt-l" style="max-width:60ch">
-      <li><span class="mk">1</span> Fear of excluding customers</li>
-      <li><span class="mk">2</span> Fear of being too specific</li>
-      <li><span class="mk">3</span> Fear of choosing the wrong market</li>
-      <li><span class="mk">4</span> Fear of sounding too narrow</li>
-      <li><span class="mk">5</span> Fear that niching down makes the business smaller</li>
-    </ul>
-    <div class="say mt-l">The irony: trying to appeal to everyone makes you less compelling to the people most likely to buy.</div>
+  <div class="wrap">
+    <div class="split">
+      <div class="stagger">
+        <div class="eyebrow">Why Generic Positioning Happens</div>
+        <h2>Generic positioning<br>comes from <span class="grad">fear.</span></h2>
+        <ul class="clean mt-l" style="max-width:60ch">
+          <li><span class="mk">1</span> Fear of excluding customers</li>
+          <li><span class="mk">2</span> Fear of being too specific</li>
+          <li><span class="mk">3</span> Fear of choosing the wrong market</li>
+          <li><span class="mk">4</span> Fear of sounding too narrow</li>
+          <li><span class="mk">5</span> Fear that niching down makes the business smaller</li>
+        </ul>
+        <div class="say mt-l">The irony: trying to appeal to everyone makes you less compelling to the people most likely to buy.</div>
+      </div>
+      <div class="stagger">
+        <div class="viz">
+          <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A distinct shape blending into a crowd of identical shapes">
+            <defs>
+              <linearGradient id="feg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#3FB6D3"/></linearGradient>
+            </defs>
+            <!-- the distinct one -->
+            <path d="M48 130 l26 -26 26 26 -26 26 z" fill="url(#feg)"/>
+            <text x="74" y="186" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#5E6AD2">DISTINCT</text>
+            <!-- arrow toward sameness -->
+            <path d="M118 130 h26" stroke="#9CA0A8" stroke-width="3" stroke-linecap="round"/>
+            <path d="M140 123 l9 7 -9 7" fill="none" stroke="#9CA0A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- the crowd of identical grey shapes -->
+            <g fill="#9CA0A8" fill-opacity="0.22" stroke="#9CA0A8" stroke-opacity="0.4" stroke-width="1.5">
+              <path d="M186 70 l20 -20 20 20 -20 20 z"/><path d="M246 70 l20 -20 20 20 -20 20 z"/><path d="M306 70 l20 -20 20 20 -20 20 z" transform="translate(-30 0)"/>
+              <path d="M186 130 l20 -20 20 20 -20 20 z"/>
+              <path d="M246 130 l20 -20 20 20 -20 20 z"/>
+              <path d="M276 130 l20 -20 20 20 -20 20 z"/>
+              <path d="M186 190 l20 -20 20 20 -20 20 z"/><path d="M246 190 l20 -20 20 20 -20 20 z"/><path d="M276 190 l20 -20 20 20 -20 20 z"/>
+            </g>
+            <!-- the one that gave up: faint violet outline, now indistinguishable -->
+            <path d="M246 130 l20 -20 20 20 -20 20 z" fill="none" stroke="url(#feg)" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <text x="256" y="238" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#9CA0A8">INVISIBLE</text>
+          </svg>
+          <div class="vcap">Safe feels invisible</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ============ S8 Cost of Generic ============ -->
 <section class="slide" data-emoji="💸" data-notice="Count how many of these you're paying for right now.">
-  <div class="wrap stagger">
-    <div class="eyebrow">The Cost of Being Generic</div>
-    <h2>Generic positioning quietly<br>taxes <span class="grad">everything.</span></h2>
-    <div class="cols-2 mt-l">
-      <ul class="clean tight">
-        <li><span class="mk">→</span> Weak ads</li>
-        <li><span class="mk">→</span> Weak website copy</li>
-        <li><span class="mk">→</span> Unclear sales calls</li>
-        <li><span class="mk">→</span> Poor referrals</li>
-        <li><span class="mk">→</span> Low pricing power</li>
-      </ul>
-      <ul class="clean tight">
-        <li><span class="mk">→</span> Low trust</li>
-        <li><span class="mk">→</span> More objections</li>
-        <li><span class="mk">→</span> Longer sales cycles</li>
-        <li><span class="mk">→</span> More dependence on discounts</li>
-        <li><span class="mk">→</span> More founder effort just to explain the business</li>
-      </ul>
+  <div class="wrap">
+    <div class="split">
+      <div class="stagger">
+        <div class="eyebrow">The Cost of Being Generic</div>
+        <h2>Generic positioning quietly<br>taxes <span class="grad">everything.</span></h2>
+        <div class="cols-2 mt-l">
+          <ul class="clean tight">
+            <li><span class="mk">→</span> Weak ads</li>
+            <li><span class="mk">→</span> Weak website copy</li>
+            <li><span class="mk">→</span> Unclear sales calls</li>
+            <li><span class="mk">→</span> Poor referrals</li>
+            <li><span class="mk">→</span> Low pricing power</li>
+          </ul>
+          <ul class="clean tight">
+            <li><span class="mk">→</span> Low trust</li>
+            <li><span class="mk">→</span> More objections</li>
+            <li><span class="mk">→</span> Longer sales cycles</li>
+            <li><span class="mk">→</span> More dependence on discounts</li>
+            <li><span class="mk">→</span> More founder effort just to explain the business</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stagger" style="display:grid;place-items:center">
+        <div class="viz">
+          <svg viewBox="0 0 280 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A leaking bucket losing value through holes">
+            <defs>
+              <linearGradient id="lkg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#3FB6D3"/></linearGradient>
+            </defs>
+            <!-- bucket -->
+            <path d="M78 70 H202 L188 196 H92 Z" fill="url(#lkg)" fill-opacity="0.12" stroke="url(#lkg)" stroke-width="2.5" stroke-linejoin="round"/>
+            <ellipse cx="140" cy="70" rx="62" ry="11" fill="none" stroke="url(#lkg)" stroke-width="2.5"/>
+            <text x="140" y="128" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="22" fill="#5E6AD2" fill-opacity="0.55">RM</text>
+            <!-- holes -->
+            <circle cx="108" cy="150" r="4" fill="#0b0c0e" fill-opacity="0.5"/>
+            <circle cx="150" cy="172" r="4" fill="#0b0c0e" fill-opacity="0.5"/>
+            <circle cx="178" cy="150" r="4" fill="#0b0c0e" fill-opacity="0.5"/>
+            <!-- leaking coins -->
+            <g fill="url(#lkg)">
+              <circle cx="100" cy="180" r="6"/><circle cx="92" cy="210" r="5"/><circle cx="86" cy="238" r="4.5" fill-opacity="0.6"/>
+              <circle cx="150" cy="200" r="6"/><circle cx="152" cy="228" r="5" fill-opacity="0.7"/>
+              <circle cx="190" cy="182" r="6"/><circle cx="200" cy="212" r="5"/><circle cx="208" cy="240" r="4.5" fill-opacity="0.6"/>
+            </g>
+          </svg>
+          <div class="vcap">Value draining, one hole at a time</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -812,19 +905,56 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 
 <!-- ============ LIMITED ATTENTION EXAMPLE ============ -->
 <section class="slide" data-emoji="📱" data-notice="They didn't read your features. They ran five gut-checks and scrolled.">
-  <div class="wrap stagger">
-    <div class="eyebrow">Watch it happen</div>
-    <h2>It's 11pm. You're scrolling. <span class="grad">An ad slides by.</span></h2>
-    <p class="sub mt">An online course for RM2,000. Here's what your brain actually does, in about three seconds:</p>
-    <table class="tbl mt">
-      <tr><th>Their brain asks</th><th>Instant gut answer</th></tr>
-      <tr><td class="k">Is this for me?</td><td>"Maybe? Can't tell."</td></tr>
-      <tr><td class="k">Relevant right now?</td><td>"I'm tired, not tonight."</td></tr>
-      <tr><td class="k">Do I trust this?</td><td>"Never heard of them."</td></tr>
-      <tr><td class="k">Better than alternatives?</td><td>"YouTube is free."</td></tr>
-      <tr><td class="k">Worth the money and risk?</td><td>"RM2,000? No."</td></tr>
-    </table>
-    <div class="say mt">Gone in three seconds. They never read your features, they ran five gut-checks. Positioning's job is to pass all five before they scroll.</div>
+  <div class="wrap">
+    <div class="split">
+      <div class="stagger">
+        <div class="eyebrow">Watch it happen</div>
+        <h2>It's 11pm. You're scrolling. <span class="grad">An ad slides by.</span></h2>
+        <p class="sub mt">An online course for RM2,000. Here's what your brain actually does, in about three seconds:</p>
+        <table class="tbl mt">
+          <tr><th>Their brain asks</th><th>Instant gut answer</th></tr>
+          <tr><td class="k">Is this for me?</td><td>"Maybe? Can't tell."</td></tr>
+          <tr><td class="k">Relevant right now?</td><td>"I'm tired, not tonight."</td></tr>
+          <tr><td class="k">Do I trust this?</td><td>"Never heard of them."</td></tr>
+          <tr><td class="k">Better than alternatives?</td><td>"YouTube is free."</td></tr>
+          <tr><td class="k">Worth the money and risk?</td><td>"RM2,000? No."</td></tr>
+        </table>
+        <div class="say mt">Gone in three seconds. They never read your features, they ran five gut-checks. Positioning's job is to pass all five before they scroll.</div>
+      </div>
+      <div class="stagger" style="display:grid;place-items:center">
+        <div class="viz" style="background:radial-gradient(120% 120% at 50% 0%,#1a1b22,#0b0c0e);border-color:rgba(255,255,255,.08)">
+          <svg viewBox="0 0 230 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A phone at 11pm showing an ad for a course" style="max-width:230px">
+            <defs>
+              <linearGradient id="phg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#3FB6D3"/></linearGradient>
+            </defs>
+            <!-- phone body -->
+            <rect x="35" y="14" width="160" height="302" rx="30" fill="#14151b" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+            <rect x="44" y="24" width="142" height="282" rx="22" fill="#0e0f14"/>
+            <!-- status bar -->
+            <text x="58" y="46" font-family="'JetBrains Mono',monospace" font-size="11" fill="#9CA0A8">11:00</text>
+            <text x="172" y="46" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="11" fill="#9CA0A8">▢ ▮</text>
+            <!-- faint earlier post scrolling away (top) -->
+            <rect x="58" y="58" width="114" height="40" rx="9" fill="#ffffff" fill-opacity="0.04"/>
+            <!-- the ad card -->
+            <rect x="56" y="108" width="118" height="150" rx="13" fill="#1b1c24" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <rect x="56" y="108" width="118" height="70" rx="13" fill="url(#phg)" fill-opacity="0.85"/>
+            <text x="115" y="150" text-anchor="middle" font-family="'Inter',sans-serif" font-weight="700" font-size="13" fill="#ffffff">SPONSORED</text>
+            <rect x="68" y="190" width="78" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.5"/>
+            <rect x="68" y="203" width="52" height="7" rx="3.5" fill="#ffffff" fill-opacity="0.28"/>
+            <text x="68" y="236" font-family="'JetBrains Mono',monospace" font-weight="600" font-size="15" fill="#ffffff">RM2,000</text>
+            <rect x="136" y="222" width="30" height="20" rx="6" fill="url(#phg)"/>
+            <!-- faint next post (bottom) -->
+            <rect x="58" y="268" width="114" height="30" rx="9" fill="#ffffff" fill-opacity="0.04"/>
+            <!-- scroll-away gesture arrow -->
+            <g stroke="#5E6AD2" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.9">
+              <path d="M206 150 v40"><animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/></path>
+              <path d="M199 178 l7 12 7 -12"><animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/></path>
+            </g>
+          </svg>
+          <div class="vcap" style="color:var(--faint)">Five gut-checks · then a flick</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1109,24 +1239,59 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 
 <!-- ============ S20 ICP is a Buying Situation ============ -->
 <section class="slide" data-emoji="🧩" data-notice="Ten inputs, most people use one.">
-  <div class="wrap stagger">
-    <div class="eyebrow">ICP Is a Buying Situation</div>
-    <h2>A strong ICP includes:</h2>
-    <div class="cols-2 mt-l">
-      <ul class="clean tight">
-        <li><span class="mk">1</span> Who they are</li>
-        <li><span class="mk">2</span> What situation they're in</li>
-        <li><span class="mk">3</span> What pain they feel</li>
-        <li><span class="mk">4</span> What triggered the pain</li>
-        <li><span class="mk">5</span> What outcome they want</li>
-      </ul>
-      <ul class="clean tight">
-        <li><span class="mk">6</span> What alternatives they're weighing</li>
-        <li><span class="mk">7</span> What they can afford</li>
-        <li><span class="mk">8</span> What they already believe</li>
-        <li><span class="mk">9</span> What they need to believe</li>
-        <li><span class="mk">10</span> The words they use for the problem</li>
-      </ul>
+  <div class="wrap">
+    <div class="split">
+      <div class="stagger">
+        <div class="eyebrow">ICP Is a Buying Situation</div>
+        <h2>A strong ICP includes:</h2>
+        <div class="cols-2 mt-l">
+          <ul class="clean tight">
+            <li><span class="mk">1</span> Who they are</li>
+            <li><span class="mk">2</span> What situation they're in</li>
+            <li><span class="mk">3</span> What pain they feel</li>
+            <li><span class="mk">4</span> What triggered the pain</li>
+            <li><span class="mk">5</span> What outcome they want</li>
+          </ul>
+          <ul class="clean tight">
+            <li><span class="mk">6</span> What alternatives they're weighing</li>
+            <li><span class="mk">7</span> What they can afford</li>
+            <li><span class="mk">8</span> What they already believe</li>
+            <li><span class="mk">9</span> What they need to believe</li>
+            <li><span class="mk">10</span> The words they use for the problem</li>
+          </ul>
+        </div>
+      </div>
+      <div class="stagger" style="display:grid;place-items:center">
+        <div class="viz">
+          <svg viewBox="0 0 260 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A buyer profile built from many layers">
+            <defs>
+              <linearGradient id="icg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#3FB6D3"/></linearGradient>
+              <clipPath id="person">
+                <circle cx="130" cy="78" r="36"/>
+                <path d="M58 262 C58 184, 92 150, 130 150 C168 150, 202 184, 202 262 Z"/>
+              </clipPath>
+            </defs>
+            <!-- layered fill = the many inputs -->
+            <g clip-path="url(#person)">
+              <rect x="40" y="40" width="180" height="240" fill="url(#icg)" fill-opacity="0.16"/>
+              <rect x="40" y="56" width="180" height="14" fill="url(#icg)" fill-opacity="0.85"/>
+              <rect x="40" y="84" width="180" height="14" fill="url(#icg)" fill-opacity="0.45"/>
+              <rect x="40" y="112" width="180" height="14" fill="url(#icg)" fill-opacity="0.8"/>
+              <rect x="40" y="140" width="180" height="14" fill="url(#icg)" fill-opacity="0.4"/>
+              <rect x="40" y="168" width="180" height="14" fill="url(#icg)" fill-opacity="0.78"/>
+              <rect x="40" y="196" width="180" height="14" fill="url(#icg)" fill-opacity="0.42"/>
+              <rect x="40" y="224" width="180" height="14" fill="url(#icg)" fill-opacity="0.7"/>
+              <rect x="40" y="252" width="180" height="14" fill="url(#icg)" fill-opacity="0.4"/>
+            </g>
+            <!-- outline -->
+            <g fill="none" stroke="url(#icg)" stroke-width="2.5">
+              <circle cx="130" cy="78" r="36"/>
+              <path d="M58 262 C58 184, 92 150, 130 150 C168 150, 202 184, 202 262"/>
+            </g>
+          </svg>
+          <div class="vcap">A situation, layered — not a label</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1433,17 +1598,45 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 </section>
 
 <!-- ============ S33 Requires a Tradeoff ============ -->
-<section class="slide divider" data-emoji="✂️" data-notice="Exclude no one and you attract no one strongly." data-reveal>
-  <div class="wrap stagger">
-    <div class="eyebrow">Differentiation Requires a Tradeoff</div>
-    <p class="statement mt">If your positioning excludes nobody, it probably <span class="grad">attracts nobody strongly.</span></p>
-    <ul class="clean tight mt-l" style="max-width:60ch">
-      <li><span class="mk">→</span> This person, not everyone</li>
-      <li><span class="mk">→</span> This problem, not all problems</li>
-      <li><span class="mk">→</span> This method, not every method</li>
-      <li><span class="mk">→</span> This outcome, not every outcome</li>
-      <li><span class="mk">→</span> This belief, not the opposite</li>
-    </ul>
+<section class="slide" data-emoji="✂️" data-notice="Exclude no one and you attract no one strongly." data-reveal>
+  <div class="wrap">
+    <div class="split">
+      <div class="stagger">
+        <div class="eyebrow">Differentiation Requires a Tradeoff</div>
+        <p class="statement mt">If your positioning excludes nobody, it probably <span class="grad">attracts nobody strongly.</span></p>
+        <ul class="clean tight mt-l" style="max-width:60ch">
+          <li><span class="mk">→</span> This person, not everyone</li>
+          <li><span class="mk">→</span> This problem, not all problems</li>
+          <li><span class="mk">→</span> This method, not every method</li>
+          <li><span class="mk">→</span> This outcome, not every outcome</li>
+          <li><span class="mk">→</span> This belief, not the opposite</li>
+        </ul>
+      </div>
+      <div class="stagger">
+        <div class="viz">
+          <svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A path forking, committing to one direction">
+            <defs>
+              <linearGradient id="trg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#3FB6D3"/></linearGradient>
+            </defs>
+            <!-- incoming path -->
+            <path d="M28 120 H120" fill="none" stroke="#5E6AD2" stroke-width="6" stroke-linecap="round"/>
+            <!-- chosen branch (commit) -->
+            <path d="M120 120 C 180 120, 200 64, 286 64" fill="none" stroke="url(#trg)" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="290" cy="64" r="16" fill="url(#trg)"/>
+            <path d="M283 64 l5 6 9 -11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="150" y="92" font-family="'JetBrains Mono',monospace" font-size="10" letter-spacing="1.5" fill="#5E6AD2">THIS</text>
+            <!-- the road not taken (faded) -->
+            <path d="M120 120 C 180 120, 200 176, 286 176" fill="none" stroke="#9CA0A8" stroke-opacity="0.4" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 10"/>
+            <circle cx="290" cy="176" r="14" fill="none" stroke="#9CA0A8" stroke-opacity="0.5" stroke-width="2"/>
+            <path d="M284 170 l12 12 M296 170 l-12 12" stroke="#9CA0A8" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round"/>
+            <text x="150" y="166" font-family="'JetBrains Mono',monospace" font-size="10" letter-spacing="1.5" fill="#9CA0A8">NOT EVERYONE</text>
+            <!-- the decision node -->
+            <circle cx="120" cy="120" r="9" fill="#fff" stroke="#5E6AD2" stroke-width="3"/>
+          </svg>
+          <div class="vcap">A position is a choice you commit to</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2104,17 +2297,50 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 
 <!-- ============ S61 Final Takeaways ============ -->
 <section class="slide" data-emoji="🎒" data-notice="Seven lines. Screenshot this one." data-reveal>
-  <div class="wrap stagger">
-    <div class="eyebrow">Final Takeaways</div>
-    <ul class="clean mt" style="max-width:70ch">
-      <li><span class="mk">1</span> If your message is broad, your conversion will suffer.</li>
-      <li><span class="mk">2</span> ICP is about urgency, not just demographics.</li>
-      <li><span class="mk">3</span> Positioning is comparison against alternatives.</li>
-      <li><span class="mk">4</span> Differentiation requires tradeoffs.</li>
-      <li><span class="mk">5</span> The higher the price, the bigger the proof gap.</li>
-      <li><span class="mk">6</span> Your front-end offer should create belief before the main sale.</li>
-      <li><span class="mk">7</span> Standing out means making sharper choices.</li>
-    </ul>
+  <div class="wrap">
+    <div class="split">
+      <div class="stagger">
+        <div class="eyebrow">Final Takeaways</div>
+        <ul class="clean mt" style="max-width:70ch">
+          <li><span class="mk">1</span> If your message is broad, your conversion will suffer.</li>
+          <li><span class="mk">2</span> ICP is about urgency, not just demographics.</li>
+          <li><span class="mk">3</span> Positioning is comparison against alternatives.</li>
+          <li><span class="mk">4</span> Differentiation requires tradeoffs.</li>
+          <li><span class="mk">5</span> The higher the price, the bigger the proof gap.</li>
+          <li><span class="mk">6</span> Your front-end offer should create belief before the main sale.</li>
+          <li><span class="mk">7</span> Standing out means making sharper choices.</li>
+        </ul>
+      </div>
+      <div class="stagger" style="display:grid;place-items:center">
+        <div class="viz">
+          <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An arrow hitting the bullseye while competitors miss">
+            <defs>
+              <linearGradient id="tgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#3FB6D3"/></linearGradient>
+            </defs>
+            <!-- scattered competitors missing -->
+            <g fill="#9CA0A8" fill-opacity="0.5">
+              <circle cx="44" cy="58" r="5"/><circle cx="250" cy="46" r="6"/><circle cx="270" cy="210" r="5"/><circle cx="40" cy="232" r="6"/><circle cx="22" cy="150" r="4.5"/><circle cx="262" cy="128" r="4.5"/>
+            </g>
+            <!-- target rings -->
+            <circle cx="150" cy="150" r="92" fill="none" stroke="#0b0c0e" stroke-opacity="0.10" stroke-width="2"/>
+            <circle cx="150" cy="150" r="64" fill="none" stroke="#0b0c0e" stroke-opacity="0.12" stroke-width="2"/>
+            <circle cx="150" cy="150" r="36" fill="url(#tgg)" fill-opacity="0.16"/>
+            <circle cx="150" cy="150" r="36" fill="none" stroke="url(#tgg)" stroke-width="2"/>
+            <circle cx="150" cy="150" r="11" fill="url(#tgg)"/>
+            <!-- the arrow, dead centre -->
+            <g stroke="#0b0c0e" stroke-opacity="0.82" stroke-width="5" stroke-linecap="round">
+              <line x1="232" y1="68" x2="156" y2="144"/>
+            </g>
+            <path d="M150 150 l16 -10 -6 12 z" fill="url(#tgg)"/>
+            <g stroke="url(#tgg)" stroke-width="5" stroke-linecap="round">
+              <path d="M232 68 l 14 -2 M232 68 l 2 -14"/>
+            </g>
+            <circle cx="150" cy="150" r="4" fill="#fff"/>
+          </svg>
+          <div class="vcap">Obvious to the right buyer</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
