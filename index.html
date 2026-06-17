@@ -150,6 +150,10 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 .p-mid{background:rgba(224,162,60,.16);color:#9a6a12}
 .p-lo{background:rgba(212,96,122,.14);color:var(--rose)}
 .hl-row td{background:rgba(94,106,210,.06)}
+.scale{display:inline-flex;gap:4px;align-items:center}
+.scale i{width:15px;height:15px;border-radius:4px;background:var(--bg-2);border:1px solid var(--line-2);transition:.3s}
+.slide.active .scale i.on{background:linear-gradient(135deg,var(--violet),var(--accent));border-color:transparent}
+.scale b{margin-left:.55rem;font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--accent)}
 
 /* big line / quote slide */
 .bigline{font-size:clamp(2rem,4.6vw,4rem);font-weight:800;letter-spacing:-.03em;line-height:1.06;max-width:18ch}
@@ -1432,14 +1436,15 @@ table.tbl td.k{color:var(--ink);font-weight:600}
     <div class="eyebrow">The ICP Scoring Matrix</div>
     <h2 style="margin-bottom:1.2rem">Score each segment 1–5</h2>
     <table class="tbl">
-      <tr><th>Criteria</th><th>The question to ask</th></tr>
-      <tr><td class="k">Pain</td><td>Do they clearly feel the problem?</td></tr>
-      <tr><td class="k">Urgency</td><td>Why must they solve it now?</td></tr>
-      <tr><td class="k">Budget</td><td>Can they pay?</td></tr>
-      <tr><td class="k">Reachability</td><td>Can you reach them repeatedly?</td></tr>
-      <tr><td class="k">Delivery fit</td><td>Can you serve them well?</td></tr>
-      <tr><td class="k">Proof gap</td><td>How much belief must you create?</td></tr>
-      <tr><td class="k">Expansion</td><td>Can they refer, renew, or upgrade?</td></tr>
+      <tr><th>Criteria</th><th>The question to ask</th><th>Score · e.g. founder-led firms</th></tr>
+      <tr><td class="k">Pain</td><td>Do they clearly feel the problem?</td><td><span class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><b>5</b></span></td></tr>
+      <tr><td class="k">Urgency</td><td>Why must they solve it now?</td><td><span class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><b>5</b></span></td></tr>
+      <tr><td class="k">Budget</td><td>Can they pay?</td><td><span class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><b>3</b></span></td></tr>
+      <tr><td class="k">Reachability</td><td>Can you reach them repeatedly?</td><td><span class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><b>3</b></span></td></tr>
+      <tr><td class="k">Delivery fit</td><td>Can you serve them well?</td><td><span class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><b>5</b></span></td></tr>
+      <tr><td class="k">Proof gap</td><td>How much belief must you create?</td><td><span class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><b>4</b></span></td></tr>
+      <tr><td class="k">Expansion</td><td>Can they refer, renew, or upgrade?</td><td><span class="scale"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><b>4</b></span></td></tr>
+      <tr class="hl-row"><td class="k">Total</td><td>Add the column. Highest total is your <b>beachhead</b>.</td><td><span class="mono" style="font-weight:700;color:var(--accent)">29 / 35</span></td></tr>
     </table>
     <div class="whyblock"><span class="wl">Then what · how to use the scores</span><p>Score every candidate segment 1 to 5 on all seven, then <b>add up each segment's total</b>. The highest total is your <b>beachhead</b>, the segment you win first. A low score doesn't mean a bad customer, just a harder place to start. Win the easy one, then expand from strength.</p></div>
   </div>
@@ -1449,17 +1454,17 @@ table.tbl td.k{color:var(--ink);font-weight:600}
 <section class="slide" data-emoji="🏢" data-notice="The highest-pain row isn't the winning row.">
   <div class="wrap stagger">
     <div class="eyebrow">Example · Marketing Agency ICPs</div>
-    <p class="sub" style="margin:.2rem 0 .6rem">You run a marketing agency. Four segments all want your help. Don't pick by gut, score them on the same five lenses and let the winner show itself.</p>
+    <p class="sub" style="margin:.2rem 0 .6rem">Same scorecard, four real candidates. You run an agency and all four are knocking. Score each <strong>1–5</strong>, add the column, and let the total, not your gut, name the beachhead.</p>
     <table class="tbl mt">
-      <tr><th>ICP</th><th>Pain</th><th>Budget</th><th>Urgency</th><th>Reach</th><th>Fit</th></tr>
-      <tr><td class="k">All SMEs</td><td><span class="pill p-mid">Med</span></td><td><span class="pill p-mid">Mixed</span></td><td><span class="pill p-lo">Low</span></td><td><span class="pill p-hi">High</span></td><td><span class="pill p-mid">Mixed</span></td></tr>
-      <tr class="hl-row"><td class="k">Founder-led service firms<br>relying on referrals</td><td><span class="pill p-hi">High</span></td><td><span class="pill p-mid">Med</span></td><td><span class="pill p-hi">High</span></td><td><span class="pill p-mid">Med</span></td><td><span class="pill p-hi">High</span></td></tr>
-      <tr><td class="k">Large corporates</td><td><span class="pill p-hi">High</span></td><td><span class="pill p-hi">High</span></td><td><span class="pill p-mid">Med</span></td><td><span class="pill p-lo">Low</span></td><td><span class="pill p-lo">Low</span></td></tr>
-      <tr><td class="k">Startups pre-revenue</td><td><span class="pill p-hi">High</span></td><td><span class="pill p-lo">Low</span></td><td><span class="pill p-hi">High</span></td><td><span class="pill p-mid">Med</span></td><td><span class="pill p-lo">Low</span></td></tr>
+      <tr><th>ICP</th><th>Pain</th><th>Budget</th><th>Urgency</th><th>Reach</th><th>Fit</th><th>Total</th></tr>
+      <tr><td class="k">All SMEs</td><td><span class="pill p-mid">3</span></td><td><span class="pill p-lo">2</span></td><td><span class="pill p-lo">1</span></td><td><span class="pill p-hi">5</span></td><td><span class="pill p-lo">2</span></td><td class="mono" style="color:var(--muted);font-weight:700">13</td></tr>
+      <tr class="hl-row"><td class="k">Founder-led service firms<br>relying on referrals <span class="flag" style="margin-top:.3rem;display:inline-block">★ beachhead</span></td><td><span class="pill p-hi">5</span></td><td><span class="pill p-mid">3</span></td><td><span class="pill p-hi">5</span></td><td><span class="pill p-mid">3</span></td><td><span class="pill p-hi">5</span></td><td class="mono" style="color:var(--accent);font-weight:700;font-size:1.15em">21</td></tr>
+      <tr><td class="k">Large corporates</td><td><span class="pill p-hi">5</span></td><td><span class="pill p-hi">5</span></td><td><span class="pill p-mid">3</span></td><td><span class="pill p-lo">1</span></td><td><span class="pill p-lo">1</span></td><td class="mono" style="color:var(--muted);font-weight:700">15</td></tr>
+      <tr><td class="k">Startups pre-revenue</td><td><span class="pill p-hi">5</span></td><td><span class="pill p-lo">1</span></td><td><span class="pill p-hi">5</span></td><td><span class="pill p-mid">3</span></td><td><span class="pill p-lo">1</span></td><td class="mono" style="color:var(--muted);font-weight:700">15</td></tr>
     </table>
-    <div class="whyblock mt"><span class="wl">How to read this</span>
-      <p><b>Founder-led service firms win.</b> They are the only segment that scores well across the board: high pain, high urgency, strong fit, and they can both pay and be reached. That overlap is rare, which is exactly why it is the beachhead.</p>
-      <p>Each of the others fails one test. <b>Corporates</b> can pay but you can't reach them. <b>Pre-revenue startups</b> feel the pain but can't pay. <b>"All SMEs"</b> is too broad to feel any urgency. Highest pain alone never wins.</p>
+    <div class="whyblock mt"><span class="wl">Watch the story the numbers tell</span>
+      <p>Look at the <b>Pain</b> column: three of the four score a perfect 5. If you picked on pain alone, you'd be stuck. The scorecard breaks the tie. <b>Founder-led firms top the column at 21/25</b>, not because they hurt most, but because they're the only segment strong on <em class="s">every</em> lens at once, that rare overlap is the beachhead.</p>
+      <p>Now the trap: <b>corporates</b> and <b>pre-revenue startups</b> feel the exact same pain, yet both stall at 15. Corporates can pay but you can't reach them; startups are reachable but broke. <b>"All SMEs"</b> is so broad nothing feels urgent (13). Highest pain never wins, the highest total does.</p>
     </div>
   </div>
 </section>
