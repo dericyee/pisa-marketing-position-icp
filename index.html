@@ -1547,26 +1547,25 @@ table.tbl td.k{color:var(--ink);font-weight:600}
       </div>
       <div class="stagger" style="display:grid;place-items:center">
         <div class="viz">
-          <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A staircase rising from unaware to ready to buy">
+          <svg viewBox="0 0 320 248" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="An awareness funnel narrowing from many unaware to a few ready to buy">
             <defs>
-              <linearGradient id="stairg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#7C5CFC"/><stop offset="1" stop-color="#3FB6D3"/></linearGradient>
+              <linearGradient id="fung" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A91F0"/><stop offset="1" stop-color="#5E6AD2"/></linearGradient>
             </defs>
-            <!-- six rising steps -->
-            <g>
-              <rect x="20"  y="196" width="44" height="28" rx="5" fill="url(#stairg)" fill-opacity="0.30"/>
-              <rect x="64"  y="170" width="44" height="54" rx="5" fill="url(#stairg)" fill-opacity="0.42"/>
-              <rect x="108" y="144" width="44" height="80" rx="5" fill="url(#stairg)" fill-opacity="0.54"/>
-              <rect x="152" y="118" width="44" height="106" rx="5" fill="url(#stairg)" fill-opacity="0.66"/>
-              <rect x="196" y="92"  width="44" height="132" rx="5" fill="url(#stairg)" fill-opacity="0.78"/>
-              <rect x="240" y="66"  width="44" height="158" rx="5" fill="url(#stairg)"/>
+            <text x="160" y="14" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#9CA0A8">UNAWARE · MANY</text>
+            <!-- funnel body -->
+            <path d="M40 26 L280 26 L192 210 L128 210 Z" fill="url(#fung)"/>
+            <!-- stage dividers: six awareness stages -->
+            <g stroke="#fff" stroke-opacity="0.45" stroke-width="1.5">
+              <line x1="54.7" y1="57" x2="265.3" y2="57"/>
+              <line x1="69.3" y1="88" x2="250.7" y2="88"/>
+              <line x1="84" y1="119" x2="236" y2="119"/>
+              <line x1="98.7" y1="150" x2="221.3" y2="150"/>
+              <line x1="113.3" y1="181" x2="206.7" y2="181"/>
             </g>
-            <!-- climber marker at the top step -->
-            <circle cx="262" cy="44" r="13" fill="#fff" stroke="#5E6AD2" stroke-width="3.5"/>
-            <path d="M256 44 l4 5 8 -10" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- dotted ascent path -->
-            <path d="M42 188 L86 162 L130 136 L174 110 L218 84 L262 58" fill="none" stroke="#0b0c0e" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
-            <text x="42" y="238" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" letter-spacing="1" fill="#9CA0A8">UNAWARE</text>
-            <text x="262" y="238" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8.5" letter-spacing="1" fill="#5E6AD2">READY</text>
+            <!-- the few who reach 'ready' -->
+            <circle cx="160" cy="208" r="13" fill="#fff" stroke="#5E6AD2" stroke-width="3.5"/>
+            <path d="M153.5 208 l4.5 5.5 8.5 -10.5" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="160" y="240" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" letter-spacing="1.5" fill="#5E6AD2">READY · FEW</text>
           </svg>
           <div class="vcap">Meet them on the step they're on</div>
         </div>
@@ -1598,7 +1597,7 @@ table.tbl td.k{color:var(--ink);font-weight:600}
       <div class="stagger">
         <div class="eyebrow">Proof · The Milkshake Study</div>
         <h2>Nobody wakes up <span class="grad">wanting a milkshake.</span></h2>
-        <p class="lead mt">Christensen watched what customers actually <em class="s">did</em>, not what they said. Morning commuters kept "hiring" a thick milkshake for the same job: <strong>keep their stomach full till lunch</strong> and <strong>make a boring drive less dull.</strong></p>
+        <p class="lead mt"><strong>Clayton Christensen</strong>, the Harvard professor who coined <em class="s">disruptive innovation</em> and Jobs To Be Done, watched what fast-food customers actually <em class="s">did</em>, not what they said. Morning commuters kept "hiring" a thick milkshake for the same job: <strong>keep their stomach full till lunch</strong> and <strong>make a boring drive less dull.</strong></p>
         <p class="sub mt">So the shake wasn't competing with other desserts at all. Its real rivals were whatever else fits one hand on a commute:</p>
         <div class="tagline-row mt">
           <span class="flag">🍌 a banana</span>
